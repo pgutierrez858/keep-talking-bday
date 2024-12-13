@@ -54,8 +54,8 @@ export class Boot extends Phaser.Scene {
     this.load.image("arrowRight", "assets/ui/arrowRight.png");
     this.load.image("panelFrame", "assets/ui/panelFrame.png");
     for (let i = 1; i <= 27; i++) {
-      this.load.image(`characters-${i}`, `/assets/buttons/characters/${i}.png`);
-      this.load.image(`minecraft-${i}`, `/assets/buttons/minecraft/${i}.png`);
+      this.load.image(`characters-${i}`, `assets/buttons/characters/${i}.png`);
+      this.load.image(`minecraft-${i}`, `assets/buttons/minecraft/${i}.png`);
     }
 
     const soundKeys = ["alex", "chema", "rafa", "pablo"].flatMap((voice) =>
@@ -63,7 +63,7 @@ export class Boot extends Phaser.Scene {
         (name) => `${voice}_${name}`
       )
     );
-    soundKeys.forEach((sk) => this.load.audio(sk, `/assets/sounds/${sk}.mp3`));
+    soundKeys.forEach((sk) => this.load.audio(sk, `assets/sounds/${sk}.mp3`));
   }
 
   create() {
