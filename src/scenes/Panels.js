@@ -44,6 +44,17 @@ export class Panels extends Phaser.Scene {
       scanLineStrength: 0.2,
       scanLineWidth: 1024,
     });
+
+    let image = this.add.image(
+      this.cameras.main.width / 2,
+      this.cameras.main.height / 2,
+      "background"
+    );
+    let scaleX = this.cameras.main.width / image.width;
+    let scaleY = this.cameras.main.height / image.height;
+    let scale = Math.max(scaleX, scaleY);
+    image.setScale(scale).setScrollFactor(0);
+    
     // Add panel frame
     this.add.image(400, 300, "panelFrame");
 

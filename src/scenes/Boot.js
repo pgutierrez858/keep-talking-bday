@@ -49,6 +49,7 @@ export class Boot extends Phaser.Scene {
     });
 
     // Load assets
+    this.load.image("background", "assets/ui/background.png");
     this.load.image("button", "assets/ui/buttonFrame.png");
     this.load.image("arrowLeft", "assets/ui/arrowLeft.png");
     this.load.image("arrowRight", "assets/ui/arrowRight.png");

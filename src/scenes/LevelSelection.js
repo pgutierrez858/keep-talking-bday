@@ -62,15 +62,27 @@ export class LevelSelection extends Phaser.Scene {
       scanLineStrength: 0.2,
       scanLineWidth: 1024,
     });
+
+    let image = this.add.image(
+      this.cameras.main.width / 2,
+      this.cameras.main.height / 2,
+      "background"
+    );
+    let scaleX = this.cameras.main.width / image.width;
+    let scaleY = this.cameras.main.height / image.height;
+    let scale = Math.max(scaleX, scaleY);
+    image.setScale(scale).setScrollFactor(0);
+
     const levels = 6; // Total number of levels
     const columns = 3; // Number of columns in the grid
     const rows = 2; // Number of rows in the grid
     const buttonSize = 100; // Size of the button
-    const padding = 20; // Padding between buttons
+    const padding = 30; // Padding between buttons
     const offsetX =
+      50 +
       (this.scale.width - (buttonSize * columns + padding * (columns - 1))) / 2; // Horizontal offset
     const offsetY =
-      (this.scale.height - (buttonSize * rows + padding * (rows - 1))) / 2; // Vertical offset
+      50 + (this.scale.height - (buttonSize * rows + padding * (rows - 1))) / 2; // Vertical offset
 
     // Retrieve the last completed level from localStorage
     const lastLevelCompleted =

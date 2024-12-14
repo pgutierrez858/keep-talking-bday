@@ -10,23 +10,35 @@ export class LevelClue extends Phaser.Scene {
       scanLineStrength: 0.2,
       scanLineWidth: 1024,
     });
+
+    let image = this.add.image(
+      this.cameras.main.width / 2,
+      this.cameras.main.height / 2,
+      "background"
+    );
+    let scaleX = this.cameras.main.width / image.width;
+    let scaleY = this.cameras.main.height / image.height;
+    let scale = Math.max(scaleX, scaleY);
+    image.setScale(scale).setScrollFactor(0);
+
     // Add clue text
-    if (!!this.unlockedText) {
+    if (!!this.unlockedText || !this.success) {
       this.clueText = this.add
         .text(
           400,
-          300,
+          275,
           this.success ? this.unlockedText : "Lamentable rendimiento...",
           {
             fontSize: "30px",
-            color: "#ffffff",
+            fontStyle: "bold",
+            color: "#000000",
           }
         )
         .setOrigin(0.5);
     }
 
     // Add clue text
-    if (!!this.unlockedImage) {
+    if (!!this.unlockedImage && this.success) {
       this.clueImage = this.add
         .image(400, 300, this.unlockedImage)
         .setOrigin(0.5)
