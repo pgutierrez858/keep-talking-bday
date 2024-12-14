@@ -31,7 +31,8 @@ export class LevelClue extends Phaser.Scene {
           {
             fontSize: "30px",
             fontStyle: "bold",
-            color: "#000000",
+            backgroundColor: "0xffffff",
+            color: "white",
           }
         )
         .setOrigin(0.5);

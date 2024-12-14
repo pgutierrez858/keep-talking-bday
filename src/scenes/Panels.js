@@ -54,7 +54,7 @@ export class Panels extends Phaser.Scene {
     let scaleY = this.cameras.main.height / image.height;
     let scale = Math.max(scaleX, scaleY);
     image.setScale(scale).setScrollFactor(0);
-    
+
     // Add panel frame
     this.add.image(400, 300, "panelFrame");
 
@@ -123,7 +123,9 @@ export class Panels extends Phaser.Scene {
     this.timerText = this.add
       .text(400, 50, formatTime(this.timeRemaining), {
         fontSize: "30px",
-        color: "#ffffff",
+        fontStyle: "bold",
+        backgroundColor: "0xffffff",
+        color: "white",
       })
       .setOrigin(0.5);
 
