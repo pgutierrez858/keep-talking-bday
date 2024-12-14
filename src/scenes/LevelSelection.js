@@ -4,7 +4,7 @@ const levelData = [
     maxWrongPanels: 2,
     numPanels: 3,
     availablePanels: ["characters"],
-    unlockedText: "Texto del nivel 1",
+    unlockedText: "puzle1",
     level: 1,
   },
   {
@@ -12,7 +12,7 @@ const levelData = [
     maxWrongPanels: 1,
     numPanels: 4,
     availablePanels: ["minecraft"],
-    unlockedText: "Texto del nivel 2",
+    unlockedText: "Misiles disparados con éxito.",
     level: 2,
   },
   {
@@ -20,7 +20,7 @@ const levelData = [
     maxWrongPanels: 0,
     numPanels: 4,
     availablePanels: ["characters", "minecraft"],
-    unlockedText: "Texto del nivel 3",
+    unlockedText: "A menudo, lo mas sencillo es volver al principio.",
     level: 3,
   },
   {
@@ -28,7 +28,7 @@ const levelData = [
     maxWrongPanels: 2,
     numPanels: 4,
     availablePanels: ["sounds"],
-    unlockedText: "Texto del nivel 4",
+    unlockedText: "Imagen 'pruebas cumple'/puzle4.png",
     level: 4,
   },
   {
@@ -36,15 +36,16 @@ const levelData = [
     maxWrongPanels: 1,
     numPanels: 4,
     availablePanels: ["characters", "minecraft", "sounds"],
-    unlockedText: "Texto del nivel 5",
+    unlockedText: "Motores listos para la turbopropulsión.",
     level: 5,
   },
   {
     timeRemaining: 75,
     maxWrongPanels: 2,
-    numPanels: 4,
+    numPanels: 6,
     availablePanels: ["characters", "minecraft", "sounds"],
-    unlockedText: "Texto del nivel 6",
+    unlockedText:
+      "Enhorabuena por vuestro esfuerzo, pero esto no tiene premio.",
     level: 6,
   },
 ];

@@ -119,8 +119,6 @@ export class GridPanel extends BasePanel {
         );
       }
     });
-
-    console.log("Generated sequence:", this.sequence);
   }
 
   setActivePanel(isActive) {

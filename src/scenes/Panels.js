@@ -54,6 +54,11 @@ export class Panels extends Phaser.Scene {
 
     // Create multiple panels
     for (let i = 0; i < this.numPanels; i++) {
+      const handlePanelCompleted = (panel) => {
+        panel.setActivePanel(false);
+        this.checkGameOver();
+      };
+
       let newPanel;
       const panelType = Phaser.Utils.Array.GetRandom(this.availablePanels);
       switch (panelType) {
@@ -62,7 +67,7 @@ export class Panels extends Phaser.Scene {
             this,
             400,
             300,
-            () => this.checkGameOver(),
+            () => handlePanelCompleted(newPanel),
             "characters"
           );
           break;
@@ -71,12 +76,14 @@ export class Panels extends Phaser.Scene {
             this,
             400,
             300,
-            () => this.checkGameOver(),
+            () => handlePanelCompleted(newPanel),
             "minecraft"
           );
           break;
         case "sounds":
-          newPanel = new GridPanel(this, 400, 300, () => this.checkGameOver());
+          newPanel = new GridPanel(this, 400, 300, () =>
+            handlePanelCompleted(newPanel)
+          );
           break;
       }
       this.panels.push(newPanel);
@@ -92,6 +99,7 @@ export class Panels extends Phaser.Scene {
         panel.setActivePanel(index === this.currentPanel);
       }
     );
+    this.panels[this.currentPanel].setActivePanel(true);
 
     // Add timer text
     this.timerText = this.add
@@ -108,7 +116,7 @@ export class Panels extends Phaser.Scene {
         this.timerText.setText(formatTime(this.timeRemaining));
 
         if (this.timeRemaining <= 0) {
-          this.endGame();
+          this.endGame(false);
         }
       },
       loop: true,
@@ -162,6 +170,7 @@ export class Panels extends Phaser.Scene {
   } // checkGameOver
 
   endGame(success) {
+    this.sound.stopAll();
     this.scene.start("LevelClue", {
       unlockedText: this.unlockedText,
       level: this.level,
