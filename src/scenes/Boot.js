@@ -53,6 +53,8 @@ export class Boot extends Phaser.Scene {
     this.load.image("arrowLeft", "assets/ui/arrowLeft.png");
     this.load.image("arrowRight", "assets/ui/arrowRight.png");
     this.load.image("panelFrame", "assets/ui/panelFrame.png");
+    this.load.image("puzle1", "assets/puzzles/puzle1.png");
+    this.load.image("puzle4", "assets/puzzles/puzle4.png");
     for (let i = 1; i <= 27; i++) {
       this.load.image(`characters-${i}`, `assets/buttons/characters/${i}.png`);
       this.load.image(`minecraft-${i}`, `assets/buttons/minecraft/${i}.png`);

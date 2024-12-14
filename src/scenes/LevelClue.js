@@ -5,20 +5,30 @@ export class LevelClue extends Phaser.Scene {
 
   create() {
     // Add clue text
-    this.clueText = this.add
-      .text(
-        400,
-        150,
-        this.success ? this.unlockedText : "Lamentable rendimiento...",
-        {
-          fontSize: "30px",
-          color: "#ffffff",
-        }
-      )
-      .setOrigin(0.5);
+    if (!!this.unlockedText) {
+      this.clueText = this.add
+        .text(
+          400,
+          300,
+          this.success ? this.unlockedText : "Lamentable rendimiento...",
+          {
+            fontSize: "30px",
+            color: "#ffffff",
+          }
+        )
+        .setOrigin(0.5);
+    }
+
+    // Add clue text
+    if (!!this.unlockedImage) {
+      this.clueImage = this.add
+        .image(400, 300, this.unlockedImage)
+        .setOrigin(0.5)
+        .setScale(1.1, 1.1);
+    }
 
     const rightArrow = this.add
-      .image(750, 300, "arrowRight")
+      .image(747, 300, "arrowRight")
       .setInteractive({ useHandCursor: true })
       .setDisplaySize(75, 75);
 
@@ -35,8 +45,9 @@ export class LevelClue extends Phaser.Scene {
     });
   } // create
 
-  init({ unlockedText, level, success }) {
+  init({ unlockedText, unlockedImage, level, success }) {
     this.unlockedText = unlockedText;
+    this.unlockedImage = unlockedImage;
     this.level = level;
     this.success = success;
   } // init

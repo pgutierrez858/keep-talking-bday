@@ -21,6 +21,7 @@ export class Panels extends Phaser.Scene {
     maxWrongPanels,
     numPanels,
     unlockedText,
+    unlockedImage,
     level,
   }) {
     this.timeRemaining = timeRemaining;
@@ -28,6 +29,7 @@ export class Panels extends Phaser.Scene {
     this.maxWrongPanels = maxWrongPanels;
     this.numPanels = numPanels;
     this.unlockedText = unlockedText;
+    this.unlockedImage = unlockedImage;
     this.level = level;
 
     this.currentPanel = 0;
@@ -54,8 +56,7 @@ export class Panels extends Phaser.Scene {
 
     // Create multiple panels
     for (let i = 0; i < this.numPanels; i++) {
-      const handlePanelCompleted = (panel) => {
-        panel.setActivePanel(false);
+      const handlePanelCompleted = () => {
         this.checkGameOver();
       };
 
@@ -67,7 +68,7 @@ export class Panels extends Phaser.Scene {
             this,
             400,
             300,
-            () => handlePanelCompleted(newPanel),
+            () => handlePanelCompleted(),
             "characters"
           );
           break;
@@ -76,13 +77,13 @@ export class Panels extends Phaser.Scene {
             this,
             400,
             300,
-            () => handlePanelCompleted(newPanel),
+            () => handlePanelCompleted(),
             "minecraft"
           );
           break;
         case "sounds":
           newPanel = new GridPanel(this, 400, 300, () =>
-            handlePanelCompleted(newPanel)
+            handlePanelCompleted()
           );
           break;
       }
@@ -175,6 +176,7 @@ export class Panels extends Phaser.Scene {
       unlockedText: this.unlockedText,
       level: this.level,
       success: success,
+      unlockedImage: this.unlockedImage,
     });
   } // endGame
 } // Panels
