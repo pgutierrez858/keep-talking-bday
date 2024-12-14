@@ -4,6 +4,12 @@ export class LevelClue extends Phaser.Scene {
   }
 
   create() {
+    this.plugins.get("rexcrtpipelineplugin").add(this.cameras.main, {
+      warpX: 0.25,
+      warpY: 0.25,
+      scanLineStrength: 0.2,
+      scanLineWidth: 1024,
+    });
     // Add clue text
     if (!!this.unlockedText) {
       this.clueText = this.add

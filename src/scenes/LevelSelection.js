@@ -56,6 +56,12 @@ export class LevelSelection extends Phaser.Scene {
   }
 
   create() {
+    this.plugins.get("rexcrtpipelineplugin").add(this.cameras.main, {
+      warpX: 0.25,
+      warpY: 0.25,
+      scanLineStrength: 0.2,
+      scanLineWidth: 1024,
+    });
     const levels = 6; // Total number of levels
     const columns = 3; // Number of columns in the grid
     const rows = 2; // Number of rows in the grid

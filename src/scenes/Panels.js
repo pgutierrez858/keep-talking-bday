@@ -38,6 +38,12 @@ export class Panels extends Phaser.Scene {
   } // init
 
   create() {
+    this.plugins.get("rexcrtpipelineplugin").add(this.cameras.main, {
+      warpX: 0.25,
+      warpY: 0.25,
+      scanLineStrength: 0.2,
+      scanLineWidth: 1024,
+    });
     // Add panel frame
     this.add.image(400, 300, "panelFrame");
 

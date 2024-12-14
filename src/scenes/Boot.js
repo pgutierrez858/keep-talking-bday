@@ -66,6 +66,11 @@ export class Boot extends Phaser.Scene {
       )
     );
     soundKeys.forEach((sk) => this.load.audio(sk, `assets/sounds/${sk}.mp3`));
+    this.load.plugin(
+      "rexcrtpipelineplugin",
+      "https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexcrtpipelineplugin.min.js",
+      true
+    );
   }
 
   create() {
